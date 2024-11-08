@@ -24,7 +24,7 @@ jobs:
           java-version: '11'
           distribution: 'temurin'  # Use the Adoptium Temurin distribution
 
-      # Step 3: Set up Node.js (using Node.js 16 for compatibility)
+      # Step 3: Set up Node.js (use Node.js 16 for compatibility)
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
