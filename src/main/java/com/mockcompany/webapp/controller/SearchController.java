@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /* java.util package provides useful utilities */
 import java.util.Collection;
+import java.util.Collections;
 
 /**
  * This class is the entrypoint for the /api/products/search API.  It is "annotated" with
@@ -62,6 +63,6 @@ public class SearchController {
         //for testing purpose
         return Collections.emptyList(); 
         // Implementation of method was moved to service, delegate query to the service now
-        return this.searchService.search(query);
+        // return this.searchService.search(query);
     }
 }
