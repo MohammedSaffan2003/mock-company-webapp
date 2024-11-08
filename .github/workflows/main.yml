@@ -24,16 +24,24 @@ jobs:
           java-version: '11'
           distribution: 'temurin'  # Use the Adoptium Temurin distribution
 
-      # Step 3: Install Gradle
-      - name: Set up Gradle
-        uses: gradle/wrapper-validation-action@v1
+      # Step 3: Set up Node.js (using Node.js 16 for compatibility)
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
         with:
-          gradle-wrapper-file: './gradlew'
+          node-version: '16'  # Use Node.js 16 for compatibility
 
-      # Step 4: Build with Gradle
+      # Step 4: Enable Corepack (Corepack enables Yarn)
+      - name: Enable Corepack
+        run: corepack enable
+
+      # Step 5: Install dependencies using Yarn
+      - name: Install dependencies with Yarn
+        run: yarn install
+
+      # Step 6: Build with Gradle
       - name: Build with Gradle
         run: ./gradlew assemble
 
-      # Step 5: Run tests with Gradle
+      # Step 7: Run tests with Gradle
       - name: Run tests with Gradle
         run: ./gradlew test
