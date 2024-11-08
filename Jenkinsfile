@@ -10,6 +10,11 @@ pipeline {
             GRADLE_HOME = '/opt/gradle' 
    }
   stages{
+    stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
 
    stage('Build'){
     steps {
